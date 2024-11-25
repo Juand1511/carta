@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corazón</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .heart {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background-color: #ff4d4d;
+            transform: rotate(-45deg);
+            margin-bottom: 20px;
+        }
+        .heart::before,
+        .heart::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: #ff4d4d;
+            border-radius: 50%;
+        }
+        .heart::before {
+            top: -50px;
+            left: 0;
+        }
+        .heart::after {
+            left: 50px;
+            top: 0;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+            text-align:center;
+        }
+        button:hover {
+            background-color: #45a049;
+            text-align:center;
+        }
+        #message {
+            display: none;
+            margin-top: 20px;
+            font-size: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="heart"></div>
+    
+    <button onclick="showOptions()">Ábreme</button>
+    
+    <div id="options" style="display: none;">
+        <h1>Quieres Salir Conmigo?</h1>
+        <button onclick="showYesMessage()">Sí</button>
+        <button onclick="showNoMessage()">No</button>
+    </div>
+    <div id="message"></div>
+
+    <script>
+        function showOptions() {
+            document.getElementById('options').style.display = 'block';
+        }
+
+        function showYesMessage() {
+            document.getElementById('message').innerText = 'Tú solo dime cuándo y lo hacemos real';
+            document.getElementById('message').style.display = 'block';
+            document.getElementById('options').style.display = 'none';
+        }
+
+        function showNoMessage() {
+            document.getElementById('message').innerText = 'Algún día se hará real';
+            document.getElementById('message').style.display = 'block';
+            document.getElementById('options').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
